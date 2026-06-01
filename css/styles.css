@@ -1,4 +1,13 @@
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 /* -------------Variables */
 :root{
@@ -58,11 +67,33 @@ nav li a:hover{
   color: var(--color-principal);
 }
 
-/* footer{
+
+/* MOBILE FIRST  */
+
+.container {
     width: 100%;
-    height: 50px;
-    background-color: var(--footer-color);
-} */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Separación limpia entre tarjetas */
+}
+
+/* Vista Base: Celulares (Ocupan todo el ancho) */
+.col-12 {
+    width: 100%;
+}
+
+/* Vista Desktop: Pantallas grandes (Se dividen en 3 columnas perfectas) */
+@media (min-width: 768px) {
+    .col-md-4 {
+        width: calc(33.333% - 14px); /* Restamos el espacio proporcional del gap */
+    }
+}
 
 /* ------------------------ Main section */
 
@@ -103,10 +134,24 @@ nav li a:hover{
   border:0;
   cursor: pointer;
   border-radius: 2px;
+  /* transform: translateY(1px); */
 }
 
 .main_button:hover{
   background-color: #5e9e22;
+  transform: translateY(1px);
+}
+
+/* MAIN CARDS  */
+
+.benefit, .mention {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit:hover, .mention:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* -------------------  MAIN BENEFICIOS  */
@@ -124,6 +169,7 @@ nav li a:hover{
     flex: 1;
     min-width: 200px;
     padding: var(--space);
+    
 }
 
 .content-benefit {
